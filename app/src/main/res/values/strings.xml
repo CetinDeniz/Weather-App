@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="addFragment_title">Add</string>
+    <string name="c">°C</string>
+    <string name="search">Search</string>
+    <string name="feels_like">Feels like %s°</string>
+
+    <!--    km/s , %-->
+    <string name = "wind_speed" >%s km/s</string>
+    <string name = "humidity" >%d%%</string>
+</resources>

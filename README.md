@@ -6,8 +6,7 @@ Architecture is MVVM
 - ViewModel
 - LiveData
 - Navigation
-- DataBinding
-- BindingAdapter
+- DataBinding, BindingAdapter
 
 /* Network */
 - Retrofit

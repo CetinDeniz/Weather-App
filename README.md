@@ -16,5 +16,7 @@ Architecture is MVVM
 
 
 /* Not implemented yet */
+
+- Daily and hourly weather forecast gonna be implemented.
 - RecyclerView
 - ListAdapter with DiffCallBack

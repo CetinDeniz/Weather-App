@@ -14,7 +14,7 @@ Architecture is MVVM
 - Coil (Image Loader)
 - Coroutine (Concurrency)
 
+
 /* Not implemented yet */
- * Display *
 - RecyclerView
 - ListAdapter with DiffCallBack

@@ -9,7 +9,7 @@ Architecture is MVVM
 - DataBinding
 - BindingAdapter
 
-* Network *
+/* Network */
 - Retrofit
 - Moshi (Converter)
 - Coil (Image Loader)

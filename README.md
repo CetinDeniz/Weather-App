@@ -1,16 +1,23 @@
 It's not the final version, I have a lot to improve.
 
-Architecture is MVVM
+#####Architecture is MVVM
 
-/* Jetpack */
+## Jetpack
 - ViewModel
 - LiveData
 - Room
 - Navigation
-- DataBinding, BindingAdapter
+- DataBinding w/ BindingAdapter
 
-/* Network */
+##For Networking
 - Retrofit
 - Moshi (Converter)
 - Coil (Image Loader)
-- Coroutine (Concurrency)
+- Coroutine (Concurrency) used.
+
+####Will be implemented later
+* Settings screen w/ DataStore
+* DailyBottomSheetFragment layout
+* Network status
+* Splash screen
+* Better UI

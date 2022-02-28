@@ -1,11 +1,20 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="addFragment_title">Add</string>
-    <string name="c">°C</string>
+
+    <string name="c">%.0f°C</string>
+    <!--    <string name="c">%s°C</string>-->
+
     <string name="search">Search</string>
-    <string name="feels_like">Feels like %s°</string>
+    <string name="feels_like">Feels like %.0f°C</string>
 
     <!--    km/s , %-->
-    <string name = "wind_speed" >%s km/s</string>
-    <string name = "humidity" >%d%%</string>
+    <string name="wind_speed">%s km/s</string>
+    <string name="humidity_format">%d%%</string>
+    <string name="sunset">Sunset</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind">Wind</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

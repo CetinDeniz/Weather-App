@@ -7,233 +7,318 @@
 
         <variable
             name="viewModel"
-            type="com.example.learning.data.WeatherViewModel" />
+            type="com.example.learning.ui.WeatherViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/button_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_settings_24" />
-
-        <TextView
-            android:id="@+id/text_city_name"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@{viewModel.cityName}"
-            app:layout_constraintEnd_toStartOf="@id/button_add"
-            app:layout_constraintStart_toEndOf="@+id/button_settings"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Beckenham, London" />
-
-        <ImageButton
-            android:id="@+id/button_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_add_24" />
-
-        <TextView
-            android:id="@+id/text_weather_description"
-            style="@style/TextAppearance.MaterialComponents.Headline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="@{viewModel.weather.current.weather[0].description}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_city_name"
-            tools:text="Mostly cloudy today" />
-
-        <ImageView
-            android:id="@+id/image_weather"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="4dp"
-            app:imageUrl="@{viewModel.weather.current.weather[0].icon}"
-            app:layout_constraintEnd_toStartOf="@+id/text_degree"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_weather_description" />
-
-        <TextView
-            android:id="@+id/text_degree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@{String.valueOf(viewModel.weather.current.temp)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textSize="64sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_weather"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_weather"
-            app:layout_constraintTop_toTopOf="@+id/image_weather"
-            tools:text="12°" />
-
-        <TextView
-            android:id="@+id/text_feels_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@{@string/feels_like(String.valueOf(viewModel.weather.current.feelsLike))}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_degree"
-            tools:text="Feels like 4.95" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_feels_like">
+            android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/card_view_constraint_layout"
+            <ImageButton
+                android:id="@+id/button_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_settings_24" />
+
+            <TextView
+                android:id="@+id/text_city_name"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@{viewModel.cityName}"
+                app:layout_constraintEnd_toStartOf="@id/button_add"
+                app:layout_constraintStart_toEndOf="@+id/button_settings"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Beckenham, London" />
+
+            <ImageButton
+                android:id="@+id/button_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_add_24" />
+
+            <TextView
+                android:id="@+id/text_weather_description"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_city_name"
+                app:weatherDescription="@{viewModel.weather.current.weather[0].description}"
+                tools:text="Mostly cloudy today" />
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/star"-->
+            <!--                android:layout_width="48dp"-->
+            <!--                android:layout_height="48dp"-->
+            <!--                android:layout_margin="16dp"-->
+            <!--                android:src="@drawable/ic_baseline_star_border_24"-->
+            <!--                app:layout_constraintStart_toEndOf="@id/text_degree"-->
+            <!--                app:layout_constraintTop_toTopOf="@id/text_degree" />-->
+
+            <ToggleButton
+                android:id="@+id/favorite"
+                checked="@{viewModel.weather.isFavorite}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:foreground="@drawable/favorite"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:textOff=""
+                android:textOn=""
+                app:layout_constraintStart_toEndOf="@id/text_degree"
+                app:layout_constraintTop_toTopOf="@id/text_degree" />
+
+            <ImageView
+                android:id="@+id/image_weather"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="4dp"
+                app:imageUrl="@{viewModel.weather.current.weather[0].icon}"
+                app:layout_constraintEnd_toStartOf="@+id/text_degree"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_weather_description" />
+
+            <!--        android:text="@{@string/c(String.valueOf(viewModel.weather.current.temp))}"  -->
+            <TextView
+                android:id="@+id/text_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{@string/c(viewModel.weather.current.temp)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textSize="64sp"
+                app:layout_constraintBottom_toBottomOf="@+id/image_weather"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_weather"
+                app:layout_constraintTop_toTopOf="@+id/image_weather"
+                tools:text="12°" />
+
+            <TextView
+                android:id="@+id/text_feels_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/feels_like(viewModel.weather.current.feelsLike)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_degree"
+                tools:text="Feels like 4.95" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/detail_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="32dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_feels_like">
+
+                <!--                android:background="@null"-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/card_view_constraint_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/image_wind"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/card_view_constraint_layout"
+                        app:srcCompat="@drawable/ic_wind" />
+
+                    <TextView
+                        android:id="@+id/text_wind_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="@string/wind"
+                        app:layout_constraintStart_toEndOf="@+id/image_wind"
+                        app:layout_constraintTop_toTopOf="@+id/image_wind" />
+
+                    <TextView
+                        android:id="@+id/text_wind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="@{@string/wind_speed(String.valueOf(viewModel.weather.current.windSpeed))}"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_wind"
+                        app:layout_constraintStart_toEndOf="@+id/image_wind"
+                        tools:text="6 km/s" />
+
+                    <ImageView
+                        android:id="@+id/image_humidity"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_wind"
+                        app:srcCompat="@drawable/ic_humidity" />
+
+                    <TextView
+                        android:id="@+id/text_humidity_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="@string/humidity"
+                        app:layout_constraintStart_toEndOf="@+id/image_humidity"
+                        app:layout_constraintTop_toTopOf="@+id/image_humidity" />
+
+                    <TextView
+                        android:id="@+id/text_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="@{@string/humidity_format(viewModel.weather.current.humidity)}"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_humidity"
+                        app:layout_constraintStart_toEndOf="@+id/image_humidity"
+                        tools:text="85%" />
+
+                    <ImageView
+                        android:id="@+id/image_sunrise"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="24dp"
+                        app:layout_constraintEnd_toStartOf="@+id/text_sunrise"
+                        app:layout_constraintTop_toTopOf="@+id/image_wind"
+                        app:srcCompat="@drawable/ic_sunrise" />
+
+                    <TextView
+                        android:id="@+id/text_sunrise_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sunrise"
+                        app:layout_constraintStart_toStartOf="@+id/text_sunrise"
+                        app:layout_constraintTop_toTopOf="@+id/image_sunrise" />
+
+                    <TextView
+                        android:id="@+id/text_sunrise"
+                        timeFormat="@{viewModel.weather.current.sunrise}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_wind"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="10:00 PM" />
+
+                    <ImageView
+                        android:id="@+id/image_sunset"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="24dp"
+                        app:layout_constraintEnd_toStartOf="@+id/text_sunset"
+                        app:layout_constraintTop_toBottomOf="@+id/image_sunrise"
+                        app:srcCompat="@drawable/ic_sunset" />
+
+                    <TextView
+                        android:id="@+id/text_sunset_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sunset"
+                        app:layout_constraintStart_toStartOf="@+id/text_sunset"
+                        app:layout_constraintTop_toTopOf="@+id/image_sunset" />
+
+                    <TextView
+                        android:id="@+id/text_sunset"
+                        timeFormat="@{viewModel.weather.current.sunset}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_sunset"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="10:00 PM" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!--        <androidx.recyclerview.widget.RecyclerView-->
+            <!--            android:id="@+id/hourlyRecyclerView"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:orientation="horizontal"-->
+            <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/detail_card_view"-->
+            <!--            tools:itemCount="16"-->
+            <!--            tools:listitem="@layout/list_item" />-->
+
+            <TextView
+                android:id="@+id/today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Today"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@id/hourlyRecyclerView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_card_view" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hourlyRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today"
+                app:recyclerViewSubmit="@{viewModel.weather.hourly}"
+                tools:itemCount="16"
+                tools:listitem="@layout/daily_list_item" />
+
+            <TextView
+                android:id="@+id/nextDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Next 7 Days >"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hourlyRecyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dailyRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@null"
-                android:padding="16dp">
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nextDays"
+                app:recyclerViewSubmit="@{viewModel.weather.daily}"
+                tools:itemCount="4"
+                tools:listitem="@layout/daily_vertical_list_item" />
 
-                <ImageView
-                    android:id="@+id/image_wind"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/card_view_constraint_layout"
-                    app:srcCompat="@drawable/ic_wind" />
-
-                <TextView
-                    android:id="@+id/text_wind_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="Wind"
-                    app:layout_constraintStart_toEndOf="@+id/image_wind"
-                    app:layout_constraintTop_toTopOf="@+id/image_wind" />
-
-                <TextView
-                    android:id="@+id/text_wind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="@{@string/wind_speed(viewModel.weather.current.windSpeed)}"
-                    app:layout_constraintBottom_toBottomOf="@+id/image_wind"
-                    app:layout_constraintStart_toEndOf="@+id/image_wind"
-                    tools:text="6 km/s" />
-
-                <ImageView
-                    android:id="@+id/image_humidity"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_wind"
-                    app:srcCompat="@drawable/ic_humidity" />
-
-                <TextView
-                    android:id="@+id/text_humidity_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="Humidity"
-                    app:layout_constraintStart_toEndOf="@+id/image_humidity"
-                    app:layout_constraintTop_toTopOf="@+id/image_humidity" />
-
-                <TextView
-                    android:id="@+id/text_humidity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="@{@string/humidity(viewModel.weather.current.humidity)}"
-                    app:layout_constraintBottom_toBottomOf="@+id/image_humidity"
-                    app:layout_constraintStart_toEndOf="@+id/image_humidity"
-                    tools:text="85%" />
-
-                <ImageView
-                    android:id="@+id/image_sunrise"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="24dp"
-                    app:layout_constraintEnd_toStartOf="@+id/text_sunrise_title"
-                    app:layout_constraintTop_toTopOf="@+id/image_wind"
-                    app:srcCompat="@drawable/ic_sunrise" />
-
-                <TextView
-                    android:id="@+id/text_sunrise_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:text="Sunrise"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/image_sunrise" />
-
-                <TextView
-                    android:id="@+id/text_sunrise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="@{String.valueOf(viewModel.weather.current.sunrise)}"
-                    app:layout_constraintBottom_toBottomOf="@+id/image_sunrise"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/image_sunrise"
-                    tools:text="10:00 PM" />
-
-                <ImageView
-                    android:id="@+id/image_sunset"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="24dp"
-                    app:layout_constraintEnd_toStartOf="@+id/text_sunset_title"
-                    app:layout_constraintTop_toBottomOf="@+id/image_sunrise"
-                    app:srcCompat="@drawable/ic_sunset" />
-
-                <TextView
-                    android:id="@+id/text_sunset_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:text="Sunset"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/image_sunset" />
-
-                <TextView
-                    android:id="@+id/text_sunset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="@{String.valueOf(viewModel.weather.current.sunset)}"
-                    app:layout_constraintBottom_toBottomOf="@+id/image_sunset"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/image_sunset"
-                    tools:text="10:00 PM" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

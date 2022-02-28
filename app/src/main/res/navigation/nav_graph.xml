@@ -7,15 +7,29 @@
 
     <fragment
         android:id="@+id/weatherFragment"
-        android:name="com.example.learning.WeatherFragment"
-        android:label="WeatherFragment" >
+        android:name="com.example.learning.ui.WeatherFragment"
+        android:label="WeatherFragment"
+        tools:layout="@layout/fragment_weather">
         <action
             android:id="@+id/action_weatherFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_weatherFragment_to_dailyDetailBottomSheet"
+            app:destination="@id/dailyDetailBottomSheet" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.learning.AddFragment"
+        android:name="com.example.learning.add.AddFragment"
         android:label="@string/addFragment_title"
         tools:layout="@layout/fragment_add" />
+
+    <dialog
+        android:id="@+id/dailyDetailBottomSheet"
+        android:name="com.example.learning.ui.DailyDetailBottomSheet"
+        tools:layout="@layout/fragment_daily_detail"
+        android:label="DailyDetailBottomSheet">
+        <argument
+            android:name="dailyWeather"
+            app:argType="com.example.learning.database.entity.DailyForecast" />
+    </dialog>
 </navigation>

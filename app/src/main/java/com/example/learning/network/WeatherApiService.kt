@@ -1,10 +1,8 @@
 package com.example.learning.network
 
-import androidx.lifecycle.MutableLiveData
-import com.example.learning.data.Location
-import com.example.learning.data.WeatherObject
+import com.example.learning.network.moshiObjects.Forecast
+import com.example.learning.network.moshiObjects.Location
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -20,15 +18,16 @@ import retrofit2.http.Query
  *
  * appid=9e764a977cc73629131ac0c5ac3de4d1
  */
-
+/** https://api.openweathermap.org/data/2.5/weather?&appid=9e764a977cc73629131ac0c5ac3de4d1 */
 private const val BASE_URL = "https://api.openweathermap.org/"
 private const val API_KEY = "9e764a977cc73629131ac0c5ac3de4d1"
-var ICON_URL = "http://openweathermap.org/img/wn/{iconCode}@2x.png"
+const val ICON_URL_FIRST = "http://openweathermap.org/img/wn/"
+const val ICON_URL_SECOND = "@2x.png"
 private const val UNITS = "metric"
-const val CITY = "London,uk"
+const val CITY = "İzmir"
 
 private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
+//    .add(KotlinJsonAdapterFactory())
     .build()
 
 private val retrofit = Retrofit.Builder()
@@ -42,10 +41,14 @@ interface WeatherApiService {
         @Query("q") cityName: String
     ): Location  /* For getting lat,lon*/
 
-    @GET("data/2.5/onecall?&units=metric&exclude=minutely,hourly,daily&appid=$API_KEY")
+
+    /**
+     * exclude=minutely,hourly,daily
+     */
+    @GET("data/2.5/onecall?&units=$UNITS&exclude=minutely&appid=$API_KEY")
     suspend fun getWeatherData(
         @Query("lat") latitude: Double, @Query("lon") longitude: Double
-    ): WeatherObject
+    ): Forecast
 }
 
 object WeatherApi {

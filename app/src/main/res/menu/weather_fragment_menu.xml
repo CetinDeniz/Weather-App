@@ -7,5 +7,4 @@
         android:title="@string/search"
         app:showAsAction="collapseActionView|always"
         app:actionViewClass="android.widget.SearchView" />
-<!--    collapseActionView|ifRoom-->
 </menu>

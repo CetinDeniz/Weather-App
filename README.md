@@ -5,6 +5,7 @@ Architecture is MVVM
 /* Jetpack */
 - ViewModel
 - LiveData
+- Room
 - Navigation
 - DataBinding, BindingAdapter
 
@@ -13,10 +14,3 @@ Architecture is MVVM
 - Moshi (Converter)
 - Coil (Image Loader)
 - Coroutine (Concurrency)
-
-
-/* Not implemented yet */
-
-- Daily and hourly weather forecast gonna be implemented.
-- RecyclerView
-- ListAdapter with DiffCallBack

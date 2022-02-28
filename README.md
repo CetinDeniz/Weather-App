@@ -15,7 +15,7 @@ It's not the final version, I have a lot to improve.
 - Coil (Image Loader)
 - Coroutine (Concurrency) used.
 
-#### Will be implemented later
+### Will be implemented later
 * Settings screen w/ DataStore
 * DailyBottomSheetFragment layout
 * Network status

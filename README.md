@@ -6,16 +6,17 @@ Architecture is MVVM
 - ViewModel
 - LiveData
 - Navigation
-- DataBinding
-- BindingAdapter
+- DataBinding, BindingAdapter
 
-* Network *
+/* Network */
 - Retrofit
 - Moshi (Converter)
 - Coil (Image Loader)
 - Coroutine (Concurrency)
 
+
 /* Not implemented yet */
- * Display *
+
+- Daily and hourly weather forecast gonna be implemented.
 - RecyclerView
 - ListAdapter with DiffCallBack
